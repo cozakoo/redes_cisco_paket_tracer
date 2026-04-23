@@ -11,11 +11,16 @@ Esta guía detalla los comandos básicos para la configuración de routers y swi
 ### 2. Modo Privilegiado (Administrador)
 **Prompt:** `Router#`
 * `configure terminal`: Accede al modo de **Configuración Global**.
-* `copy running-config startup-config`: Guarda la configuración actual en la memoria persistente (NVRAM).
+* `copy running-config startup-config`: Guarda la configuración actual en NVRAM.
+* `show running-config`: Muestra la configuración actual en ejecución.
+* `reload`: Reinicia el dispositivo.
 
 ### 3. Modo de Configuración Global
 **Prompt:** `Router(config)#`
-* `interface [nombre]`: Selecciona una interfaz específica para configurar (ej: `interface FastEthernet0/0`).
+* `interface [nombre]`: Selecciona una interfaz para configurar.
+* `enable password [password]`: Establece contraseña de acceso privilegiado.
+* `enable secret [password]`: Establece contraseña de acceso privilegiado encriptada (recomendado).
+* `service password-encryption`: Encripta todas las contraseñas en texto plano.
 * `end`: Sale directamente al modo Privilegiado.
 
 ### 4. Modo de Configuración de Interfaz
@@ -31,6 +36,12 @@ Esta guía detalla los comandos básicos para la configuración de routers y swi
 * `network [direccion_red]`: Define las redes que el router publicará (ej: `network 192.168.4.0`).
 * `exit`: Regresa al modo de Configuración Global.
 
+### 6. Configuración de Línea (Consola)
+**Prompt:** `Router(config)# line console 0`
+* `password [password]`: Establece la contraseña para acceso físico/consola.
+* `login`: Indica que se debe pedir la contraseña establecida.
+* `exit`: Regresa al modo de Configuración Global.
+
 ---
 
 ### Resumen de Navegación
@@ -39,5 +50,3 @@ Esta guía detalla los comandos básicos para la configuración de routers y swi
 | `exit` | Retrocede un nivel en la jerarquía de menús. |
 | `end` | Vuelve directamente al modo Privilegiado (`#`). |
 | `wr` | Abreviatura común de `write` (equivalente a guardar cambios). |
-
-
